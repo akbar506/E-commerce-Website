@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
-import { Logo } from "./constants";
+import { Logo } from "@/lib/constants";
+import Link from "next/link";
 
 export default function Footer() {
   return (
@@ -90,7 +91,17 @@ export default function Footer() {
             Design by. <strong>Weird Design Studio</strong>
           </div>
           <div>
-            Code by. <strong>shabrina12 on github</strong>
+            Code by.{" "}
+            <strong>
+              <Link
+                href={
+                  "https://github.com/akbar506/E-commerce-Website/tree/master/e-commerce-clothing-website"
+                }
+                target="_blank"
+              >
+                <span className="underline">akbar506 on github</span>
+              </Link>
+            </strong>
           </div>
         </div>
       </div>

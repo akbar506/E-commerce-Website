@@ -1,5 +1,5 @@
 import React from "react";
-import { Events } from "./constants";
+import { Events } from "@/lib/constants";
 import Image from "next/image";
 
 export default function Promotion() {

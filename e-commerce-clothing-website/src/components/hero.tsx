@@ -1,6 +1,6 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
-import { Header, sponsers, cartIcon } from "./constants";
+import { Header, sponsers, cartIcon } from "@/lib/constants";
 import Image from "next/image";
 
 const Hero = () => {
