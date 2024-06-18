@@ -87,7 +87,7 @@ export const Products: {
   [key: string]: Product;
 } = {
   product1: {
-    productName: "Brushed Raglan Sweatshirt",
+    productName: "Brushed Raglan SweatShirt",
     productType: "Sweater",
     productPrice: 195,
     productCare:
