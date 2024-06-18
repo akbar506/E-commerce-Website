@@ -107,7 +107,10 @@ export default function productDetail({
         <div>
           {specificProduct.map((product) => (
             <>
-              <div className="flex flex-col items-center mt-5 md:mt-10">
+              <div
+                className="flex flex-col items-center mt-5 md:mt-10"
+                key={product.productName}
+              >
                 <div className="flex flex-col items-center w-10/12 md:w-8/12 lg:6/12">
                   <div className="flex justify-start mb-10">
                     <h4 className="text-2xl font-bold">Product Information</h4>
