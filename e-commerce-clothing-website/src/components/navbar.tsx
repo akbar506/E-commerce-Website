@@ -7,12 +7,10 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 
 export default function Navbar() {
-  const [visible, setVisible] = useState<string>("hidden");
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const HandleHamburger = () => {
-    {
-      visible == "hidden" ? setVisible("flex") : setVisible("hidden");
-    }
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
   };
 
   return (
@@ -97,7 +95,7 @@ export default function Navbar() {
             <Button
               variant={"ghost"}
               className="w-11 p-1 bg-white"
-              onClick={HandleHamburger}
+              onClick={toggleMenu}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -113,53 +111,62 @@ export default function Navbar() {
           </div>
         </div>
         <div>
-          {visible == "flex" ? (
+          {isMenuOpen && (
             <>
-              <div className="flex xl:hidden justify-center items-center z-10">
-                <ul className="flex xl:hidden flex-col justify-center items-center h-screen gap-10">
-                  <div className="w-12 h-12 bg-slate-100 rounded-full ml-10 flex justify-center items-center">
-                    <button className="flex-col gap-0 flex justify-center items-center">
-                      <span className="bg-red-600 rounded-full h-4 w-4 text-white flex justify-center items-center">
-                        <small>0</small>
-                      </span>
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="18"
-                        height="18"
-                        fill="currentColor"
-                        className="bi bi-cart w-10"
-                        viewBox="0 0 16 16"
-                      >
-                        <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2" />
-                      </svg>
-                    </button>
-                  </div>
-                  <li>
-                    <Link href={"/"} className="">
-                      Female
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href={"/"} className="">
-                      Male
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href={"/"} className="">
-                      Kids
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href={"/products"} className="">
-                      All Products
-                    </Link>
-                  </li>
-                </ul>
+              <div className="fixed inset-0 bg-white z-50 xl:hidden">
+            <div className="flex flex-col h-full">
+              <div className="flex justify-end p-4">
+                <Button variant={"ghost"} onClick={toggleMenu}>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                  </svg>
+                </Button>
               </div>
+              <ul className="flex flex-col items-center justify-center flex-grow gap-10">
+                <div className="w-12 h-12 bg-slate-100 rounded-full flex justify-center items-center mb-6">
+                  <button className="flex-col gap-0 flex justify-center items-center">
+                    <span className="bg-red-600 rounded-full h-4 w-4 text-white flex justify-center items-center">
+                      <small>0</small>
+                    </span>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="18"
+                      height="18"
+                      fill="currentColor"
+                      className="bi bi-cart w-10"
+                      viewBox="0 0 16 16"
+                    >
+                      <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2" />
+                    </svg>
+                  </button>
+                </div>
+                <li>
+                  <Link href={"/female"} className="" onClick={toggleMenu}>
+                    Female
+                  </Link>
+                </li>
+                <li>
+                  <Link href={"/male"} className="" onClick={toggleMenu}>
+                    Male
+                  </Link>
+                </li>
+                <li>
+                  <Link href={"/kids"} className="" onClick={toggleMenu}>
+                    Kids
+                  </Link>
+                </li>
+                <li>
+                  <Link href={"/products"} className="" onClick={toggleMenu}>
+                    All Products
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          </div>
             </>
-          ) : (
-            <div></div>
-          )}
+          ) 
+          }
         </div>
       </nav>
     </>
