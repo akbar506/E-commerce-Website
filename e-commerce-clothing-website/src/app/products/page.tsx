@@ -8,12 +8,12 @@ import SkeletonProduct from "@/components/skeleton_product";
 
 const getProducts = async () => {
   return await client.fetch(`*[_type == 'products']`);
-}
+};
 
 export default async function AllProducts() {
   let products = await getProducts();
 
-  await new Promise(resolve => setTimeout(resolve, 3000))
+  // await new Promise(resolve => setTimeout(resolve, 3000))
 
   return (
     <>
@@ -23,10 +23,7 @@ export default async function AllProducts() {
             <>
               <Suspense fallback={<SkeletonProduct />}>
                 <div className="mx-auto">
-                  <Link
-                    key={product._id}
-                    href={`/product/${product._id}`}
-                  >
+                  <Link key={product._id} href={`/product/${product._id}`}>
                     <div>
                       <div className="flex flex-col gap-2 p-5">
                         <div>

@@ -2,6 +2,7 @@ import React from "react";
 import { Button } from "@/components/ui/button";
 import { Header, sponsers, cartIcon } from "@/lib/constants";
 import Image from "next/image";
+import Link from "next/link";
 
 const Hero = () => {
   return (
@@ -22,16 +23,18 @@ const Hero = () => {
               </p>
             </div>
             <div>
-              <Button className="rounded-none text-lg w-60 h-16">
-                <Image
-                  src={cartIcon.url}
-                  alt={cartIcon.alt}
-                  width={25}
-                  height={25}
-                  className="invert mr-4"
-                />
-                Start Shopping
-              </Button>
+              <Link href={"/products"}>
+                <Button className="rounded-none text-lg w-60 h-16">
+                  <Image
+                    src={cartIcon.url}
+                    alt={cartIcon.alt}
+                    width={25}
+                    height={25}
+                    className="invert mr-4"
+                  />
+                  Start Shopping
+                </Button>
+              </Link>
             </div>
           </div>
           <div className="flex justify-evenly flex-wrap gap-5">
